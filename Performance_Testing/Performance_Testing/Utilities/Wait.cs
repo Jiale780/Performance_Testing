@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ namespace IC_API_Testing.Utilities
 {
     class Wait
     {
+        // To write wait syntax for Element Exist condition.
         public static void WaitForElementToExist(IWebDriver testDriver, string locationType, string locationValue, int seconds)
         {
             var wait = new WebDriverWait(testDriver, new TimeSpan(0, 0, seconds));
@@ -27,6 +29,8 @@ namespace IC_API_Testing.Utilities
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(locationValue)));
             }
         }
+
+        // To write wait syntax for Element Clickable condition
         public static void WaitForElementToBeClickable(IWebDriver testDriver, string locationType, string locationValue, int seconds)
         {
             var wait = new WebDriverWait(testDriver, new TimeSpan(0, 0, seconds));
